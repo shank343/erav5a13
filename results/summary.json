@@ -1,0 +1,530 @@
+{
+ "env": {
+  "CFG": {
+   "vocab_size": 8192,
+   "d_model": 384,
+   "n_layers": 10,
+   "n_heads": 6,
+   "seq_len": 512,
+   "total_tokens": 50000000,
+   "val_tokens": 1000000,
+   "fixed_batch": null,
+   "base_lr": 0.001,
+   "min_lr_frac": 0.1,
+   "weight_decay": 0.0,
+   "betas": [
+    0.9,
+    0.95
+   ],
+   "grad_clip": 1.0,
+   "warmup_frac": 0.02,
+   "lr_scale_rule": "sqrt",
+   "max_lr": 0.003,
+   "gpu_usd_per_hour": {
+    "T4": 0.35,
+    "L4": 0.7,
+    "A100": 1.8,
+    "H100": 2.5
+   },
+   "ce_chunk_tokens": 8192,
+   "eval_every_tokens": 5000000,
+   "eval_batches": 40,
+   "eval_batch": 16,
+   "sweep_tokens": 5000000,
+   "seed": 1337
+  },
+  "VARIANTS": {
+   "euler": {
+    "mode": "euler",
+    "h": 1.0,
+    "gamma": 1.0
+   },
+   "midpoint": {
+    "mode": "midpoint",
+    "h": 0.25,
+    "gamma": 1.0
+   }
+  },
+  "gpu": "Tesla T4",
+  "gpu_mem_gib": 14.56317138671875,
+  "amp": "torch.float16",
+  "torch": "2.11.0+cu128"
+ },
+ "fixed_batch": 192,
+ "params": 21053184,
+ "best_variant": "euler",
+ "gpu_usd_per_hour": 0.35,
+ "runs": [
+  {
+   "name": "run1_standard",
+   "mode": "standard",
+   "h": 1.0,
+   "gamma": 1.0,
+   "batch": 192,
+   "seq_len": 512,
+   "tokens_per_step": 98304,
+   "steps": 508,
+   "lr": 0.001,
+   "tokens": 49938432,
+   "params": 21053184,
+   "diverged": false,
+   "final_train_loss": 5.1847583770751955,
+   "final_val_loss": 5.1864309191703795,
+   "tok_per_s": 54937.94204447017,
+   "train_time_s": 891.1034920160001,
+   "wall_time_s": 928.8837962150574,
+   "est_time_50M_min": 15.168630318528892,
+   "est_cost_50M_usd": 0.0884836768580852,
+   "peak_mem_alloc_gib": 14.16871690750122,
+   "peak_mem_reserved_gib": 14.404296875,
+   "reconstruction_rel_err_after_training": null,
+   "gpu": "Tesla T4",
+   "amp": "torch.float16",
+   "evals": [
+    {
+     "step": 50,
+     "tokens": 4915200,
+     "val_loss": 6.6411009430885315
+    },
+    {
+     "step": 100,
+     "tokens": 9830400,
+     "val_loss": 6.2526942729949955
+    },
+    {
+     "step": 150,
+     "tokens": 14745600,
+     "val_loss": 5.988069689273834
+    },
+    {
+     "step": 200,
+     "tokens": 19660800,
+     "val_loss": 5.79830127954483
+    },
+    {
+     "step": 250,
+     "tokens": 24576000,
+     "val_loss": 5.634876251220703
+    },
+    {
+     "step": 300,
+     "tokens": 29491200,
+     "val_loss": 5.491746473312378
+    },
+    {
+     "step": 350,
+     "tokens": 34406400,
+     "val_loss": 5.3780956149101256
+    },
+    {
+     "step": 400,
+     "tokens": 39321600,
+     "val_loss": 5.294502174854278
+    },
+    {
+     "step": 450,
+     "tokens": 44236800,
+     "val_loss": 5.2344343900680546
+    },
+    {
+     "step": 500,
+     "tokens": 49152000,
+     "val_loss": 5.191315853595734
+    },
+    {
+     "step": 508,
+     "tokens": 49938432,
+     "val_loss": 5.1864309191703795
+    }
+   ]
+  },
+  {
+   "name": "run2_euler",
+   "mode": "euler",
+   "h": 1.0,
+   "gamma": 1.0,
+   "batch": 192,
+   "seq_len": 512,
+   "tokens_per_step": 98304,
+   "steps": 508,
+   "lr": 0.001,
+   "tokens": 49938432,
+   "params": 21053184,
+   "diverged": false,
+   "final_train_loss": 5.536004066467285,
+   "final_val_loss": 5.554777896404266,
+   "tok_per_s": 43967.09341613761,
+   "train_time_s": 1113.4552729389995,
+   "wall_time_s": 1156.187994480133,
+   "est_time_50M_min": 18.953568875841768,
+   "est_cost_50M_usd": 0.11056248510907697,
+   "peak_mem_alloc_gib": 2.6544151306152344,
+   "peak_mem_reserved_gib": 2.845703125,
+   "reconstruction_rel_err_after_training": [
+    0.15738482773303986,
+    0.017756512388586998
+   ],
+   "gpu": "Tesla T4",
+   "amp": "torch.float16",
+   "evals": [
+    {
+     "step": 50,
+     "tokens": 4915200,
+     "val_loss": 6.811468756198883
+    },
+    {
+     "step": 100,
+     "tokens": 9830400,
+     "val_loss": 6.32947074174881
+    },
+    {
+     "step": 150,
+     "tokens": 14745600,
+     "val_loss": 6.078427803516388
+    },
+    {
+     "step": 200,
+     "tokens": 19660800,
+     "val_loss": 5.92637425661087
+    },
+    {
+     "step": 250,
+     "tokens": 24576000,
+     "val_loss": 5.816295766830445
+    },
+    {
+     "step": 300,
+     "tokens": 29491200,
+     "val_loss": 5.734915232658386
+    },
+    {
+     "step": 350,
+     "tokens": 34406400,
+     "val_loss": 5.671302235126495
+    },
+    {
+     "step": 400,
+     "tokens": 39321600,
+     "val_loss": 5.6206621646881105
+    },
+    {
+     "step": 450,
+     "tokens": 44236800,
+     "val_loss": 5.584334027767182
+    },
+    {
+     "step": 500,
+     "tokens": 49152000,
+     "val_loss": 5.55593079328537
+    },
+    {
+     "step": 508,
+     "tokens": 49938432,
+     "val_loss": 5.554777896404266
+    }
+   ]
+  },
+  {
+   "name": "run3_euler_maxbatch",
+   "mode": "euler",
+   "h": 1.0,
+   "gamma": 1.0,
+   "batch": 1152,
+   "seq_len": 512,
+   "tokens_per_step": 589824,
+   "steps": 84,
+   "lr": 0.002449489742783178,
+   "tokens": 49545216,
+   "params": 21053184,
+   "diverged": false,
+   "final_train_loss": 6.535281848907471,
+   "final_val_loss": 6.512645840644836,
+   "tok_per_s": 42834.05932120316,
+   "train_time_s": 1101.5981382050018,
+   "wall_time_s": 1182.2737319469452,
+   "est_time_50M_min": 19.45492317420468,
+   "est_cost_50M_usd": 0.11348705184952729,
+   "peak_mem_alloc_gib": 14.28596830368042,
+   "peak_mem_reserved_gib": 14.36328125,
+   "reconstruction_rel_err_after_training": [
+    8.53496265411377,
+    0.10551627725362778
+   ],
+   "gpu": "Tesla T4",
+   "amp": "torch.float16",
+   "evals": [
+    {
+     "step": 8,
+     "tokens": 4718592,
+     "val_loss": 7.371464562416077
+    },
+    {
+     "step": 16,
+     "tokens": 9437184,
+     "val_loss": 7.293485546112061
+    },
+    {
+     "step": 24,
+     "tokens": 14155776,
+     "val_loss": 7.170731008052826
+    },
+    {
+     "step": 32,
+     "tokens": 18874368,
+     "val_loss": 7.064069068431854
+    },
+    {
+     "step": 40,
+     "tokens": 23592960,
+     "val_loss": 6.935673522949219
+    },
+    {
+     "step": 48,
+     "tokens": 28311552,
+     "val_loss": 6.772981226444244
+    },
+    {
+     "step": 56,
+     "tokens": 33030144,
+     "val_loss": 6.680234658718109
+    },
+    {
+     "step": 64,
+     "tokens": 37748736,
+     "val_loss": 6.606593656539917
+    },
+    {
+     "step": 72,
+     "tokens": 42467328,
+     "val_loss": 6.556081771850586
+    },
+    {
+     "step": 80,
+     "tokens": 47185920,
+     "val_loss": 6.524732089042663
+    },
+    {
+     "step": 84,
+     "tokens": 49545216,
+     "val_loss": 6.512645840644836
+    }
+   ]
+  }
+ ],
+ "head_to_head": {
+  "euler": {
+   "name": "run2_euler",
+   "mode": "euler",
+   "h": 1.0,
+   "gamma": 1.0,
+   "batch": 192,
+   "seq_len": 512,
+   "tokens_per_step": 98304,
+   "steps": 508,
+   "lr": 0.001,
+   "tokens": 49938432,
+   "params": 21053184,
+   "diverged": false,
+   "final_train_loss": 5.536004066467285,
+   "final_val_loss": 5.554777896404266,
+   "tok_per_s": 43967.09341613761,
+   "train_time_s": 1113.4552729389995,
+   "wall_time_s": 1156.187994480133,
+   "est_time_50M_min": 18.953568875841768,
+   "est_cost_50M_usd": 0.11056248510907697,
+   "peak_mem_alloc_gib": 2.6544151306152344,
+   "peak_mem_reserved_gib": 2.845703125,
+   "reconstruction_rel_err_after_training": [
+    0.15738482773303986,
+    0.017756512388586998
+   ],
+   "gpu": "Tesla T4",
+   "amp": "torch.float16",
+   "evals": [
+    {
+     "step": 50,
+     "tokens": 4915200,
+     "val_loss": 6.811468756198883
+    },
+    {
+     "step": 100,
+     "tokens": 9830400,
+     "val_loss": 6.32947074174881
+    },
+    {
+     "step": 150,
+     "tokens": 14745600,
+     "val_loss": 6.078427803516388
+    },
+    {
+     "step": 200,
+     "tokens": 19660800,
+     "val_loss": 5.92637425661087
+    },
+    {
+     "step": 250,
+     "tokens": 24576000,
+     "val_loss": 5.816295766830445
+    },
+    {
+     "step": 300,
+     "tokens": 29491200,
+     "val_loss": 5.734915232658386
+    },
+    {
+     "step": 350,
+     "tokens": 34406400,
+     "val_loss": 5.671302235126495
+    },
+    {
+     "step": 400,
+     "tokens": 39321600,
+     "val_loss": 5.6206621646881105
+    },
+    {
+     "step": 450,
+     "tokens": 44236800,
+     "val_loss": 5.584334027767182
+    },
+    {
+     "step": 500,
+     "tokens": 49152000,
+     "val_loss": 5.55593079328537
+    },
+    {
+     "step": 508,
+     "tokens": 49938432,
+     "val_loss": 5.554777896404266
+    }
+   ]
+  },
+  "midpoint": {
+   "name": "run2_midpoint",
+   "mode": "midpoint",
+   "h": 0.25,
+   "gamma": 1.0,
+   "batch": 192,
+   "seq_len": 512,
+   "tokens_per_step": 98304,
+   "steps": 508,
+   "lr": 0.001,
+   "tokens": 49938432,
+   "params": 21053184,
+   "diverged": false,
+   "final_train_loss": 5.836456394195556,
+   "final_val_loss": 5.846709620952606,
+   "tok_per_s": 42445.187949065956,
+   "train_time_s": 1153.3790840729994,
+   "wall_time_s": 1198.6324458122253,
+   "est_time_50M_min": 19.633163936824353,
+   "est_cost_50M_usd": 0.11452678963147538,
+   "peak_mem_alloc_gib": 4.339297294616699,
+   "peak_mem_reserved_gib": 4.44921875,
+   "reconstruction_rel_err_after_training": [
+    0.010298941284418106,
+    0.00011901876132469624
+   ],
+   "gpu": "Tesla T4",
+   "amp": "torch.float16",
+   "evals": [
+    {
+     "step": 50,
+     "tokens": 4915200,
+     "val_loss": 6.907907295227051
+    },
+    {
+     "step": 100,
+     "tokens": 9830400,
+     "val_loss": 6.5145410895347595
+    },
+    {
+     "step": 150,
+     "tokens": 14745600,
+     "val_loss": 6.299540114402771
+    },
+    {
+     "step": 200,
+     "tokens": 19660800,
+     "val_loss": 6.170581889152527
+    },
+    {
+     "step": 250,
+     "tokens": 24576000,
+     "val_loss": 6.068249678611755
+    },
+    {
+     "step": 300,
+     "tokens": 29491200,
+     "val_loss": 6.0039629459381105
+    },
+    {
+     "step": 350,
+     "tokens": 34406400,
+     "val_loss": 5.947643768787384
+    },
+    {
+     "step": 400,
+     "tokens": 39321600,
+     "val_loss": 5.905150544643402
+    },
+    {
+     "step": 450,
+     "tokens": 44236800,
+     "val_loss": 5.872565865516663
+    },
+    {
+     "step": 500,
+     "tokens": 49152000,
+     "val_loss": 5.849228632450104
+    },
+    {
+     "step": 508,
+     "tokens": 49938432,
+     "val_loss": 5.846709620952606
+    }
+   ]
+  }
+ },
+ "max_batch": {
+  "standard": {
+   "max_batch": 192,
+   "curve": {
+    "16": 2.1154909133911133,
+    "32": 3.2379274368286133,
+    "64": 5.4240851402282715,
+    "128": 9.79640007019043,
+    "192": 14.168715000152588
+   },
+   "gib_per_seq": 0.06841445814531585
+  },
+  "euler": {
+   "max_batch": 1152,
+   "curve": {
+    "16": 1.0482301712036133,
+    "32": 1.1363649368286133,
+    "64": 1.2539191246032715,
+    "128": 1.8789763450622559,
+    "256": 3.4298501014709473,
+    "512": 6.53159761428833,
+    "1024": 12.735092639923096,
+    "1152": 14.285966396331787
+   },
+   "gib_per_seq": 0.011838278369794297
+  },
+  "midpoint": {
+   "max_batch": 664,
+   "curve": {
+    "16": 1.1455812454223633,
+    "32": 1.3277711868286133,
+    "64": 1.66204833984375,
+    "128": 3.000671863555908,
+    "256": 5.677918910980225,
+    "512": 11.032413005828857,
+    "640": 13.709660053253174,
+    "656": 14.044316291809082,
+    "664": 14.211644172668457
+   },
+   "gib_per_seq": 0.02052806353328571
+  }
+ }
+}
